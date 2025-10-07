@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import football from "/football.jpg";
-import cricket from "/cricket.jpg";
-import celebration from "/celebration.jpg";
+import football from "../assets/football.jpg";
+import cricket from "../assets/cricket.jpg";
+import celebration from "../assets/celebration.jpg";
 
 const images = [football, cricket, celebration];
 
