@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { addBooking } from "../services/firebaseService";
 import type { Turf } from "../utils/types";
 
@@ -6,7 +6,7 @@ type Props = {
   open: boolean;
   turf: Turf | null;
   onClose: () => void;
-  onBooked?: () => void;
+  onBooked?: (customerPhone: string, bookingTime: string) => void; // NEW
 };
 
 export default function BookingModal({ open, turf, onClose, onBooked }: Props) {
@@ -60,7 +60,8 @@ export default function BookingModal({ open, turf, onClose, onBooked }: Props) {
             const msg = `Hey ${name}! 🎉 Your booking for *${turf.name}* on *${date}* at *${time}* is confirmed! ✅\nPayment ID: ${response.razorpay_payment_id}\nAmount: ₹${amount}\n\nThank you for choosing *BookMyTurf*!`;
             sendWhatsApp(phone, msg);
             alert("Payment successful! Redirecting to WhatsApp...");
-            onBooked?.();
+            // NEW: Calling with phone and time
+            onBooked?.(phone, `${date} ${time}`);
             onClose();
           },
           prefill: { name, contact: phone },
@@ -104,7 +105,8 @@ export default function BookingModal({ open, turf, onClose, onBooked }: Props) {
       setDate("");
       setTime("");
       setTxnId("");
-      onBooked?.();
+      // NEW: Calling with phone and time
+      onBooked?.(phone, `${date} ${time}`);
       onClose();
     } catch (err: any) {
       alert("Error: " + err?.message);

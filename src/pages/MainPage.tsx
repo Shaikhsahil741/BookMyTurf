@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import football from "../assets/football.jpg";
 import cricket from "../assets/cricket.jpg";

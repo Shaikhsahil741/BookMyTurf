@@ -1,5 +1,5 @@
 // src/pages/CustomerPage.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { subscribeTurfs } from "../services/firebaseService";
 import type { Turf } from "../utils/types";
 import BookingModal from "../components/BookingModal";
