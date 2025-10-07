@@ -1,31 +1,49 @@
-// src/pages/MainPage.tsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import football from "/football.jpg";
+import cricket from "/cricket.jpg";
+import celebration from "/celebration.jpg";
 
-const images = ["/football.jpg", "/cricket.jpg", "/celebration.jpg"];
+const images = [football, cricket, celebration];
 
 export default function MainPage() {
   const [idx, setIdx] = useState(0);
   const [welcome, setWelcome] = useState(true);
 
+  // Smooth slideshow transition
   useEffect(() => {
-    const iv = setInterval(() => setIdx((p) => (p + 1) % images.length), 5000);
-    return () => clearInterval(iv);
+    const interval = setInterval(() => {
+      setIdx((prev) => (prev + 1) % images.length);
+    }, 4500); // smoother speed
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    const t = setTimeout(() => setWelcome(false), 2800);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setWelcome(false), 2800);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden font-['Poppins'] text-white">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
-        style={{ backgroundImage: `url(${images[idx]})` }}
-      />
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Background slideshow */}
+      <div className="absolute inset-0 z-0">
+        {images.map((img, i) => (
+          <div
+            key={i}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[2000ms] ${
+              i === idx ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${img})`,
+              backgroundSize: "cover",
+              filter: "brightness(0.75)",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60 z-0" />
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-30 p-4 flex justify-center bg-black/30 backdrop-blur-sm">
@@ -36,7 +54,7 @@ export default function MainPage() {
 
       {/* Welcome Animation */}
       {welcome ? (
-        <div className="absolute inset-0 flex items-center justify-center text-center animate-fade-in">
+        <div className="absolute inset-0 flex items-center justify-center text-center animate-fade-in z-20">
           <div>
             <h1 className="text-6xl font-extrabold text-green-400 drop-shadow-lg">
               Welcome to BOOKMYTURF
@@ -49,7 +67,7 @@ export default function MainPage() {
       ) : (
         <>
           {/* Hero Section */}
-          <div className="relative z-20 pt-24 flex flex-col items-center justify-center text-center px-6">
+          <div className="relative z-20 pt-24 flex flex-col items-center justify-center text-center px-6 animate-slide-up">
             <h1 className="text-6xl font-extrabold text-green-400 drop-shadow-lg">
               BOOKMYTURF
             </h1>
@@ -73,11 +91,11 @@ export default function MainPage() {
           </div>
 
           {/* About Section */}
-          <section className="relative z-20 mt-24 bg-black/40 backdrop-blur-sm p-8 md:p-16 rounded-2xl mx-6 md:mx-20 text-center shadow-xl">
-            <h2 className="text-3xl font-bold mb-4 text-green-400">
+          <section className="relative z-20 mt-24 bg-black/40 backdrop-blur-sm p-10 md:p-20 rounded-2xl mx-6 md:mx-20 text-center shadow-xl">
+            <h2 className="text-3xl font-bold mb-6 text-green-400">
               Why Choose BookMyTurf?
             </h2>
-            <p className="text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-200 max-w-3xl mx-auto leading-relaxed text-lg">
               BookMyTurf is your one-stop platform for all your turf booking
               needs. Whether it’s football, cricket, or just a friendly
               get-together, our system ensures you find the perfect turf with
@@ -133,7 +151,7 @@ export default function MainPage() {
             ))}
           </section>
 
-          {/* Testimonials Section */}
+          {/* Testimonials */}
           <section className="relative z-20 mt-24 text-center px-8 md:px-20">
             <h2 className="text-3xl font-bold text-green-400 mb-6">
               What Players Say

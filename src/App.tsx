@@ -5,14 +5,14 @@ import MainPage from "./pages/MainPage";
 import CustomerPage from "./pages/CustomerPage";
 import AdminPage from "./pages/AdminPage";
 
-function App(){
+function App() {
   return (
-    <Router>
+    <Router basename="/BookMyTurf">
       <div className="min-h-screen m-0 p-0">
         <Routes>
-          <Route path="/" element={<MainPage/>} />
-          <Route path="/customer" element={<CustomerPage/>} />
-          <Route path="/admin" element={<AdminPage/>} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/customer" element={<CustomerPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </div>
     </Router>
