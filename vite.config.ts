@@ -1,10 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Detect if we're on GitHub Pages
-const isGitHubPages = process.env.DEPLOY_ENV === "GH_PAGES";
-
 export default defineConfig({
-  base: isGitHubPages ? "/BookMyTurf/" : "/",
+  base: "/BookMyTurf/", // IMPORTANT for GitHub Pages
   plugins: [react()],
 });

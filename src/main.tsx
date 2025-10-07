@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import App from "./App.tsx";
 import "./index.css";
 
+// Set basename dynamically for local dev vs GitHub Pages
 const basename = window.location.hostname.includes("github.io")
   ? "/BookMyTurf"
   : "/";

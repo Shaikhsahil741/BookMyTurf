@@ -13,6 +13,8 @@ function App({ basename }: AppProps) {
         <Route path="/" element={<MainPage />} />
         <Route path="/customer" element={<CustomerPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        {/* Optional: fallback for unknown routes */}
+        <Route path="*" element={<MainPage />} />
       </Routes>
     </Router>
   );
