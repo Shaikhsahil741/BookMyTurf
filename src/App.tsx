@@ -4,21 +4,16 @@ import MainPage from "./pages/MainPage";
 import CustomerPage from "./pages/CustomerPage";
 import AdminPage from "./pages/AdminPage";
 
-function App() {
-  // 👇 Auto-detect if running on GitHub Pages or locally
-  const basename = window.location.hostname.includes("github.io")
-    ? "/BookMyTurf"
-    : "/";
+type AppProps = { basename: string };
 
+function App({ basename }: AppProps) {
   return (
     <Router basename={basename}>
-      <div className="min-h-screen m-0 p-0">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/customer" element={<CustomerPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/customer" element={<CustomerPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
     </Router>
   );
 }
