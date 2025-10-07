@@ -3,13 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-// Set basename dynamically for local dev vs GitHub Pages
-const basename = window.location.hostname.includes("github.io")
-  ? "/BookMyTurf"
-  : "/";
+// Use HashRouter on GitHub Pages to avoid 404s on refresh
+const isGitHubPages = window.location.hostname.includes("github.io");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App basename={basename} />
+    <App useHashRouter={isGitHubPages} />
   </React.StrictMode>
 );

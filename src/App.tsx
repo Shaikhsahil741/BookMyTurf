@@ -1,23 +1,26 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import CustomerPage from "./pages/CustomerPage";
 import AdminPage from "./pages/AdminPage";
 
-type AppProps = { basename: string };
+type AppProps = {
+  useHashRouter?: boolean;
+};
 
-function App({ basename }: AppProps) {
+const App: React.FC<AppProps> = ({ useHashRouter = false }) => {
+  const Router = useHashRouter ? HashRouter : BrowserRouter;
+
   return (
-    <Router basename={basename}>
+    <Router>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/customer" element={<CustomerPage />} />
         <Route path="/admin" element={<AdminPage />} />
-        {/* Optional: fallback for unknown routes */}
-        <Route path="*" element={<MainPage />} />
+        <Route path="*" element={<MainPage />} /> {/* fallback */}
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
