@@ -1,0 +1,70 @@
+{
+  "hash": "ff9f8fb9",
+  "configHash": "be667722",
+  "lockfileHash": "a1b5a57b",
+  "browserHash": "9316744a",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/.pnpm/react@19.1.0/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "1305ed30",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/.pnpm/react@19.1.0/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "99284bb4",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "8b29f409",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/.pnpm/react-router-dom@7.9.3_react-dom@19.1.0_react@19.1.0/node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "2b587331",
+      "needsInterop": false
+    },
+    "react-qr-code": {
+      "src": "../../node_modules/.pnpm/react-qr-code@2.0.18_react@19.1.0/node_modules/react-qr-code/lib/index.js",
+      "file": "react-qr-code.js",
+      "fileHash": "6220a0a6",
+      "needsInterop": true
+    },
+    "firebase/database": {
+      "src": "../../node_modules/.pnpm/firebase@12.3.0/node_modules/firebase/database/dist/esm/index.esm.js",
+      "file": "firebase_database.js",
+      "fileHash": "500a49e8",
+      "needsInterop": false
+    },
+    "firebase/app": {
+      "src": "../../node_modules/.pnpm/firebase@12.3.0/node_modules/firebase/app/dist/esm/index.esm.js",
+      "file": "firebase_app.js",
+      "fileHash": "07687454",
+      "needsInterop": false
+    },
+    "firebase/analytics": {
+      "src": "../../node_modules/.pnpm/firebase@12.3.0/node_modules/firebase/analytics/dist/esm/index.esm.js",
+      "file": "firebase_analytics.js",
+      "fileHash": "8125953b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-N5P5IXHH": {
+      "file": "chunk-N5P5IXHH.js"
+    },
+    "chunk-54FEGWNZ": {
+      "file": "chunk-54FEGWNZ.js"
+    },
+    "chunk-4Q7JAH7U": {
+      "file": "chunk-4Q7JAH7U.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
+    }
+  }
+}
